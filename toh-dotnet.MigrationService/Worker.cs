@@ -68,19 +68,22 @@ public class Worker(
 
     private static async Task SeedDataAsync(tohdotnetContext dbContext, CancellationToken cancellationToken)
     {
-        Hero firstHero = new()
+        if (dbContext.Heroes.Count() == 0)
         {
-            Name = "Isaac"
-        };
+            Hero firstHero = new()
+            {
+                Name = "Isaac"
+            };
 
-        var strategy = dbContext.Database.CreateExecutionStrategy();
-        await strategy.ExecuteAsync(async () =>
-        {
-            // Seed the database
-            await using var transaction = await dbContext.Database.BeginTransactionAsync(cancellationToken);
-            await dbContext.Heroes.AddAsync(firstHero, cancellationToken);
-            await dbContext.SaveChangesAsync(cancellationToken);
-            await transaction.CommitAsync(cancellationToken);
-        });
+            var strategy = dbContext.Database.CreateExecutionStrategy();
+            await strategy.ExecuteAsync(async () =>
+            {
+                // Seed the database
+                await using var transaction = await dbContext.Database.BeginTransactionAsync(cancellationToken);
+                await dbContext.Heroes.AddAsync(firstHero, cancellationToken);
+                await dbContext.SaveChangesAsync(cancellationToken);
+                await transaction.CommitAsync(cancellationToken);
+            });
+        }
     }
 }

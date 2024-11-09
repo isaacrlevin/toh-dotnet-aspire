@@ -54,7 +54,6 @@ namespace tohdotnet.domain
         public async Task<List<Hero>> SearchHeros(string name)
         {
             var heros = await context.Heroes.Where(m => m.Name.Contains(name)).ToListAsync();
-            var willThrow = heros[3];
             return heros;
         }
 

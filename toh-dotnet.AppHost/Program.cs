@@ -1,6 +1,7 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
 var sqldb = builder.AddSqlServer("sql")
+    .WithDataVolume()
     .AddDatabase("heroes");
 
 
