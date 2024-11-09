@@ -1,2 +1,2 @@
-# toh-dotnet-aspire
-Angular Tour of Heroes Sample with ASP.NET Core 9 Backend using the latest SPA Samples but using Aspire!
+# toh-dotnetcore
+Angular Tour of Heroes with ASP.NET Core 6.0 Backend per Latest SPA Templates

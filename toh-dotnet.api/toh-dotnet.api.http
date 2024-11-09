@@ -1,0 +1,6 @@
+@toh_dotnet.api_HostAddress = http://localhost:5155
+
+GET {{toh_dotnet.api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
