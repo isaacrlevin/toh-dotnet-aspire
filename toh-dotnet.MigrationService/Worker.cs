@@ -31,7 +31,7 @@ public class Worker(
         }
         catch (Exception ex)
         {
-            activity?.RecordException(ex);
+            activity?.AddException(ex);
             throw;
         }
 
@@ -68,7 +68,7 @@ public class Worker(
 
     private static async Task SeedDataAsync(tohdotnetContext dbContext, CancellationToken cancellationToken)
     {
-        if (dbContext.Heroes.Count() == 0)
+        if (!dbContext.Heroes.Any())
         {
             Hero firstHero = new()
             {
