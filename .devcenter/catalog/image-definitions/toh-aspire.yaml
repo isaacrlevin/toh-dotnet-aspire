@@ -1,0 +1,9 @@
+$schema: "1.0"
+name: "toh-aspire"
+image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc
+description: "This definition is for the eShop backend engineering environment"
+
+tasks:
+  - name: ~/winget
+    parameters:
+      downloadUrl: 'https://raw.githubusercontent.com/isaacrlevin/toh-dotnet-aspire/main/.devcenter/dsc/common-team.dsc.yaml'
